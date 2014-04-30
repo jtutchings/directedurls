@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="blocks/directedurls/db" VERSION="20120419" COMMENT="XMLDB file for Moodle blocks/directedurls"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="block_directedurls" COMMENT="Directed URLS block">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" NEXT="displaytext"/>
+        <FIELD NAME="displaytext" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" PREVIOUS="id" NEXT="url"/>
+        <FIELD NAME="url" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" PREVIOUS="displaytext" NEXT="sortorder"/>
+        <FIELD NAME="sortorder" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false" PREVIOUS="url" NEXT="visible"/>
+        <FIELD NAME="visible" TYPE="int" LENGTH="1" NOTNULL="true" UNSIGNED="false" SEQUENCE="false" PREVIOUS="sortorder" NEXT="md5"/>
+        <FIELD NAME="md5" TYPE="int" LENGTH="1" NOTNULL="true" UNSIGNED="false" SEQUENCE="false" DEFAULT="0" PREVIOUS="visible" NEXT="sharedsecret"/>
+        <FIELD NAME="sharedsecret" TYPE="char" LENGTH="255" NOTNULL="true" UNSIGNED="false" SEQUENCE="false" PREVIOUS="md5" NEXT="iframe"/>
+        <FIELD NAME="iframe" TYPE="int" LENGTH="1" NOTNULL="true" UNSIGNED="false" SEQUENCE="false" DEFAULT="1" PREVIOUS="sharedsecret"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+  </TABLES>
+</XMLDB>
